@@ -1,44 +1,41 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
 import Todos from './components/Todos';
-import Todo from './models/todo';
+// import Todo from './models/todo';
 import NewTodo from './components/NewTodo';
 
+import TodosContextProvider from './store/todos-context';
+
+
 function App() {
-  // const todos = [
-  //   new Todo('Learn React'),
-  //   new Todo('Learn TS'),
-  // ];
+  // const todosCtx: TodoCtx = useContext(todosContext);
+  // const [todos, setTodos] = useState<Todo[]>([]);
 
-  const [todos, setTodos] = useState<Todo[]>([]);
+  // // useEffect(() => {}, []);
 
-  // useEffect(() => {}, []);
+  // const onAddTodoHandler = (item: any) => {
+  //   const newTodo = new Todo(item);
+  //   setTodos((prevState) => {
+  //     return prevState.concat(newTodo);
+  //   });
+  //   console.log(item);
+  //   console.log(todos);
+  // }
 
-  const removeTodoHandler = (id: string) => {
-
-    setTodos((prevItems) => {
-      return prevItems.filter(item => item.id !== id)
-    })
-    console.log();
-  };
-
-  const onAddTodoHandler = (item: any) => {
-
-    const newTodo = new Todo(item);
-
-    setTodos((prevState) => {
-      return prevState.concat(newTodo);
-    });
-    console.log(item);
-    console.log(todos);
-
-  }
+  // const removeTodoHandler = (id: string) => {
+  //   setTodos((prevItems) => {
+  //     return prevItems.filter(item => item.id !== id)
+  //   })
+  //   console.log();
+  // };
 
   return (
-    <React.Fragment>
-      <NewTodo onAddTodo={onAddTodoHandler}/>
-      <Todos items={todos} onRemoveTodo={removeTodoHandler}/>
-    </React.Fragment>
+    <TodosContextProvider>
+      {/* <NewTodo onAddTodo={todosCtx.onAddTodoHandler}/>
+      <Todos items={todosCtx.todos} onRemoveTodo={todosCtx.removeTodoHandler}/> */}
+      <NewTodo />
+      <Todos />
+    </TodosContextProvider>
   );
 }
 
