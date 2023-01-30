@@ -1,11 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import Todo from '../models/todo';
-
-// interface TodoCtx  {
-//   items: Todo[],
-//   addTodo: (item: string) => void,
-//   removeTodo: (id: string) => void
-// }
 
 export type TodoCtx = {
   items: Todo[],
@@ -14,11 +8,6 @@ export type TodoCtx = {
 }
 
 export const todosContext = React.createContext<
-//   {
-//     items: Todo[],
-//     addTodo: (item: string) => void,
-//     removeTodo: (id: string) => void
-//   }
 TodoCtx
 >({
   items: [],
@@ -27,9 +16,7 @@ TodoCtx
 });
 
 export const TodosContextProvider: React.FC = (props: any) => {
-    const [todos, setTodos] = useState<Todo[]>([]);
-
-  // useEffect(() => {}, []);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const onAddTodoHandler = (item: any) => {
     const newTodo = new Todo(item);
