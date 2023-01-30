@@ -15,7 +15,7 @@ TodoCtx
   removeTodo: (id: string) => {}
 });
 
-export const TodosContextProvider: React.FC = (props: any) => {
+export const TodosContextProvider: any = (props: any) => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const onAddTodoHandler = (item: any) => {
